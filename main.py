@@ -3,6 +3,10 @@ from flask_restful import Api, Resource
 
 from routes.products import GetAll, GetOne
 
+import sqlite3
+
+conn = sqlite3.connect("test.db")
+
 app = Flask(__name__)
 api = Api(app)
 
@@ -21,7 +25,7 @@ class Welcome(Resource):
 
 api.add_resource(Welcome, "/")
 api.add_resource(GetAll, "/products")
-api.add_resource(GetOne, "/product/<int:id>")
+api.add_resource(GetOne, "/products/<int:id>")
 
 
 if __name__ == "__main__":
