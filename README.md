@@ -68,5 +68,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
--Thank you to the Flask and Flask-RESTful communities for creating such fantastic tools for building RESTful APIs in Python.
--Special thanks to the authors and contributors of the requests library for making it easy to work with HTTP requests.
+- Thank you to the Flask and Flask-RESTful communities for creating such fantastic tools for building RESTful APIs in Python.
+- Special thanks to the authors and contributors of the requests library for making it easy to work with HTTP requests.
