@@ -1,20 +1,11 @@
 from flask import Flask, request
 from flask_restful import Api, Resource
 
-from routes.products import GetAll, GetOne
+from api.routes.products import GetAll, GetOne
 
-import sqlite3
-
-conn = sqlite3.connect("test.db")
 
 app = Flask(__name__)
 api = Api(app)
-
-
-# home endpoint ('/')
-# @app.route("/")
-# def index():
-#     return jsonify({"msg": "This is a restAPI. All good and beautiful"})
 
 
 # home endpoint ('/')
