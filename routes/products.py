@@ -1,9 +1,11 @@
-from flask import jsonify
-from flask import Blueprint
-from flask_restful import Resource
+from flask import request
+
+from flask_restful import Resource, reqparse
 
 import sqlite3
 
+
+# DATABASE stuff ...
 conn = sqlite3.connect("test.db")
 
 # Creating a cursor object using the cursor() method
@@ -17,16 +19,35 @@ products = cursor.fetchall()
 
 # # Step 5: Display the products or perform further operations
 for product in products:
-    print(product)
+    # print(product)
+    pass
 
 
-# products = [
-#     {"id": 1, "title": "Book 1", "author": "Author 1"},
-#     {"id": 2, "title": "Book 2", "author": "Author 2"},
-# ]
+product_put_args = reqparse.RequestParser(bundle_errors=True)  # shows multiple error
+product_put_args.add_argument(
+    "price",
+    type=float,
+    help="The price cannot be empty and needs to be a number",
+    required=True,
+)
+product_put_args.add_argument(
+    "description",
+    type=str,
+    help="The description of the product is required",
+    required=True,
+)
+product_put_args.add_argument(
+    "test", type=str, help="The description of the product is required", required=True
+)
+product_put_args.add_argument(
+    "images",
+    type=str,
+    help="The images of the product are required",
+    required=True,
+    action="append",
+)
 
-# Create a Blueprint instance
-products_blueprint = Blueprint("product_blueprint", __name__)
+product_put_args.add_argument("Authorization", location="headers")
 
 
 class GetAll(Resource):
@@ -34,7 +55,8 @@ class GetAll(Resource):
         return products
 
     def post(self):
-        return {"msg": "nunca puedes"}, 201
+        args = product_put_args.parse_args()
+        return {"msg": args}, 201
 
 
 class GetOne(Resource):
