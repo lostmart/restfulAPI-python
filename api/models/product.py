@@ -4,7 +4,11 @@ class Product:
     self.description = description
     self.images = images
 
-product1 = Product(32, "la description", ["1", 2, 3])
 
-print(product1.images)
+try:
+  product1 = Product( "la description", ["1", 2, 3])
+  print(product1.images)
+except Exception as e:  
+  print("noooooooooooo !!!", e)
+
 

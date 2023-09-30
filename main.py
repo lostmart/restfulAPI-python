@@ -15,8 +15,8 @@ class Welcome(Resource):
 
 
 api.add_resource(Welcome, "/")
-api.add_resource(GetAll, "/products")
-api.add_resource(GetOne, "/products/<int:id>")
+api.add_resource(GetAll, "api/products")
+api.add_resource(GetOne, "api/products/<int:id>")
 
 
 if __name__ == "__main__":

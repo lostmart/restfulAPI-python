@@ -56,11 +56,15 @@ The following API endpoints are available:
 
 ### Create a Resource
 
-To create a new resource, send a POST request to http://127.0.0.1:5000/products with a JSON payload containing the resource data.
+To create a new resource, send a POST request to http://127.0.0.1:5000/api/products with a JSON payload containing the resource data.
+
+### Retrieve a Collection of all Products
+
+To retrieve a collection of all available products, send a GET request to http://127.0.0.1:5000/api/products
 
 ### Retrieve a Resource
 
-To retrieve a specific resource by ID, send a GET request to http://127.0.0.1:5000/products<id>
+To retrieve a specific resource by ID, send a GET request to http://127.0.0.1:5000/api/products<id>
 
 ## License
 
