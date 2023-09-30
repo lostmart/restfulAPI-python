@@ -25,5 +25,3 @@ product_put_args.add_argument(
 )
 
 product_put_args.add_argument("Authorization", location="headers")
-
-args = product_put_args.parse_args()
