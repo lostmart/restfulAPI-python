@@ -14,9 +14,6 @@ product_put_args.add_argument(
     required=True,
 )
 product_put_args.add_argument(
-    "test", type=str, help="The description of the product is required", required=True
-)
-product_put_args.add_argument(
     "images",
     type=str,
     help="The images of the product are required",
