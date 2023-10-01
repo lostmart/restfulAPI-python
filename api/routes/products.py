@@ -6,28 +6,26 @@ import api.controllers.post_params as post_params
 # import Product model Class
 import api.models.product as ProductModel
 
-# import the connection and its cursor
-import api.db.connection as conn
-
-
-# Execute the SQL query to retrieve all products
-conn.cursor.execute("SELECT * FROM products")
-
-# Fetch the results
-products = conn.cursor.fetchall()
-
-def execute_fetch():
-    # Execute the SQL query to retrieve all products
-    conn.cursor.execute("SELECT * FROM products")
-
-    # Fetch the results
-    return conn.cursor.fetchall()
-
+# import DB handler with all required methods
+import api.db.connectionhadler as conn
 
 
 class GetAll(Resource):
+    """
+    Returns the result of fetchall() from the cursor
+    The class DatabaseHandler handles the connection, the curor creation
+    and its method get_data executes and commit a query SELECT * from the table passed as an argument
+
+    Arguments:
+    table_name: string (name of the table that you want to query within the DB)
+    """
+
     def get(self):
-        return execute_fetch()
+        path = "api/db/test.db"
+        db_handler = conn.DatabaseHandler(path)
+        db_handler.connect()
+        result = db_handler.get_data("products")
+        return result
 
     def post(self):
         args = post_params.product_put_args.parse_args()
