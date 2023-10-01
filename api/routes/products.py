@@ -25,6 +25,7 @@ class GetAll(Resource):
         db_handler = conn.DatabaseHandler(path)
         db_handler.connect()
         result = db_handler.get_data("products")
+        db_handler.disconnect()
         return result
 
     def post(self):

@@ -9,8 +9,11 @@ class DatabaseHandler:
 
     def connect(self):
         try:
-            self.conn = sqlite3.connect(self.database_name)
+            # Establish DB connection
+            self.conn = sqlite3.connect(self.database_name, check_same_thread=False)
+            # Creating a cursor object using the cursor() method
             self.cursor = self.conn.cursor()
+            # Catch any connection errors
         except sqlite3.Error as e:
             print("SQLite error:", e)
 
