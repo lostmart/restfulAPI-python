@@ -1,4 +1,4 @@
-from flask_restful import Resource, reqparse
+from flask_restful import reqparse
 
 product_put_args = reqparse.RequestParser(bundle_errors=True)  # shows multiple error
 product_put_args.add_argument(
@@ -14,12 +14,10 @@ product_put_args.add_argument(
     required=True,
 )
 product_put_args.add_argument(
-    "images",
+    "imgUrl",
     type=str,
-    help="The images of the product are required",
+    help="The image url of the product are required",
     required=True,
-    action="append",
 )
 
 product_put_args.add_argument("Authorization", location="headers")
-

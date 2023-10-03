@@ -5,11 +5,12 @@ class Product:
     Attributes:
         price: float
         description: string
-        images: list ( a list of images files names )
+        imgUrl: string
 
     """
 
-    def __init__(self, price, description, images):
+    def __init__(self, price, description, imgUrl):
+        self.product_id = None
         self.price = price
         self.description = description
-        self.images = images
+        self.imgUrl = imgUrl

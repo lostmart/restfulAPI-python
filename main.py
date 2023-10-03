@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask
 from flask_restful import Api, Resource
 
 from api.routes.products import GetAll, GetOne
