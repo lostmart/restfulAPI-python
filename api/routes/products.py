@@ -16,8 +16,6 @@ class GetAll(Resource):
     The class DatabaseHandler handles the connection, the curor creation
     and its method get_data executes and commit a query SELECT * from the table passed as an argument
 
-    Arguments:
-    table_name: string (name of the table that you want to query within the DB)
     """
 
     def get(self):
@@ -62,14 +60,20 @@ class GetAll(Resource):
 
 
 class GetOne(Resource):
-    def __init__(self, database_name, product_id):
-        self.database_name = database_name
-        self.product_id = product_id
+    """
+    Return one product based on the id parameter
 
-    def get_one(self):
+    Arguments:
+    product_id : int
+    """
+
+    def get(self, product_id):
         path = "api/db/test.db"
         db_handler = conn.DatabaseHandler(path)
         db_handler.connect()
-        result = db_handler.get_one_product("products", self.product_id)
-        db_handler.disconnect()
-        return result
+        result = db_handler.get_one_product("products", product_id)
+        if result:
+            db_handler.disconnect()
+            return result
+        else:
+            return {"msg": "no products found with that id"}, 404
