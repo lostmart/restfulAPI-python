@@ -51,7 +51,7 @@ class GetAll(Resource):
                 "Object error! Something wrong with the argument parameter when creating the Product object: "
                 + str(e)
             )
-            return {"msg": error_msg}, 500
+            return {"msg": error_msg}, 400
 
         # if all good the last product is sent back to the user (the new created product)
         new_created = db_handler.get_last_product("products")
