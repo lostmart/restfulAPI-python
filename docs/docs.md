@@ -1,3 +1,1 @@
-# docs are gonna live here
-
-lorem stuff for now ...
+# docs here
