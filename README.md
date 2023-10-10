@@ -66,6 +66,10 @@ To retrieve a collection of all available products, send a GET request to http:/
 
 To retrieve a specific resource by ID, send a GET request to http://127.0.0.1:5000/api/products<id>
 
+## Swagger UI
+
+In order to test and see the API rolling you can visit http://127.0.0.1:5000/api/docs/ and check the Swagger UI
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
