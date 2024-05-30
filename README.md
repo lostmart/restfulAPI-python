@@ -12,7 +12,7 @@ This repository contains a Python application that implements a REST API using F
 1- Clone the repository to your local machine:
 
 ```shell
-git clone https://github.com/yourusername/your-repo.git
+git clone https://github.com/lostmart/restfulAPI-python
 ```
 
 2- Navigate to the project directory:
